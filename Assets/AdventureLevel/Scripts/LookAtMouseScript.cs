@@ -12,7 +12,7 @@ public class LookAtMouseScript : MonoBehaviour
 
     bool dead;
 
-    GameObject nextLight;
+    GameObject nextMirror;
 
     public float vecDistance = 500f;
 
@@ -65,16 +65,16 @@ public class LookAtMouseScript : MonoBehaviour
                     {
                         //if (nextLight == null)
                         //{
-                            nextLight = hit.transform.gameObject;
+                            nextMirror = hit.transform.gameObject;
 
                         //}
-                        nextLight.GetComponent<Mirror>().l.enabled = true;
+                        nextMirror.GetComponent<Mirror>().l.enabled = true;
 
-                        nextLight.GetComponent<Mirror>().canReflect = true;
+                        nextMirror.GetComponent<Mirror>().canReflect = true;
 
-                        nextLight.GetComponent<Mirror>().prevLight = gameObject;
+                        nextMirror.GetComponent<Mirror>().prevLight = gameObject;
 
-                        nextLight.transform.GetChild(0).transform.position = new Vector3(hit.point.x, hit.point.y, nextLight.transform.GetChild(0).transform.position.z);
+                        nextMirror.transform.GetChild(0).transform.position = new Vector3(hit.point.x, hit.point.y, nextMirror.transform.GetChild(0).transform.position.z);
                     }
                     else if (hit.transform.gameObject.CompareTag("Enemy"))
                     {
@@ -99,12 +99,12 @@ public class LookAtMouseScript : MonoBehaviour
 
     void ResetFL()
     {
-        if (nextLight != null)
+        if (nextMirror != null)
         {
-            nextLight.GetComponent<Mirror>().canReflect = false;
-            nextLight.GetComponent<Mirror>().prevLight = null;
+            nextMirror.GetComponent<Mirror>().canReflect = false;
+            nextMirror.GetComponent<Mirror>().prevLight = null;
 
-            nextLight.GetComponent<Mirror>().l.enabled = false;
+            nextMirror.GetComponent<Mirror>().l.enabled = false;
 
             //nextLight = null;
         }

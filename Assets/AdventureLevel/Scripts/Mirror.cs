@@ -28,7 +28,6 @@ public class Mirror : MonoBehaviour
 
     Transform lightPos;
 
-
     private void Start()
     {  
         l = gameObject.transform.GetChild(0).GetComponent<Light>();

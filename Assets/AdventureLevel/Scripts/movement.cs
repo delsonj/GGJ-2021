@@ -79,4 +79,9 @@ public class movement : MonoBehaviour
                 speed = defaultSpeed;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }
